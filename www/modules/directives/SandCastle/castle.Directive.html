@@ -1,0 +1,33 @@
+<div ng-switch="vm.castleArea">
+  <div ng-if="vm.castleArea!=='Court'"><input type="button" value="Back" ng-click="vm.ChangeArea('Court')"></div>
+  <div ng-switch-when="Court">
+    <input type="button" value="Farms" ng-click="vm.ChangeArea('Farms')">
+    <input type="button" value="Mason Facilities" ng-click="vm.ChangeArea('Masonry')">
+    <input type="button" value="Wood cutting fields" ng-click="vm.ChangeArea('LumberJacks')">
+    <input type="button" value="Artisan Facilities" ng-click="vm.ChangeArea('Artisans')">
+  </div>
+  <div ng-switch-when="Farms">
+    <h2>Farms</h2>
+    <h3>Total Farmers:{{vm.farmers}}</h3>
+    <div ng-repeat="farm in vm.farms">
+      <!--{{farm.value}}-->
+      <h3>Farm hands:{{farm.farmersTotal}}</h3>({{farm.unAssignedFarmers}} Unassigned) <input type="button"value="Train Farmers" ng-click="vm.TrainFarmers(farm)">
+      <h3>Base Quality:{{farm.quality}}</h3>
+      <h3>Acres</h3> <input type="button"value="Build Acre" ng-click="vm.BuildAcre(farm)">
+      <div ng-repeat="acre in farm.acres">
+        <h4>Acre</h4>
+        <h4>Farmers:{{acre.farmers}}</h4> <input type="button"value="Assign Farmers" ng-click="vm.AssignFarmersToAcre(farm,acre)">
+        <h4>acre Size:{{acre.qualityLevel}} square miles</h4>
+      </div>
+    </div>
+  </div>
+  <div ng-switch-when="Masonry">
+    <h2>Mason Facilities</h2>
+  </div>
+  <div ng-switch-when="LumberJacks">
+    <h2>Artisan Facilities</h2>
+  </div>
+  <div ng-switch-when="Artisans">
+    <h2>Wood cutting fields</h2>
+  </div>
+</div>
