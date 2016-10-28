@@ -8,76 +8,76 @@ The game is built to a passive progreasion where the user, must work to provide 
 
 ##features##
 - The game is built to a passive progreasion. meaning the user at hand may walk away, and not lose progression, but will not be able to progress with out action. Further more will be able to progress faster, and easier, with more time invested.
-- the goal is to maintain a high value self sustaining system. 
-- The higher the system value the harder it should be to maintain.
-- the player(the end user) may:
-	- train works
-		- with in availbe willing citizen count
-		- Asign availble workers to verious jobs
-		- each worker adds to the surplus food consumption rate
-		- workers will only work from there relavtive jobs as long as the needed source, and food are above surplus limits (else base rates are applied untill then)
-	- build farms;
-		- upgrade thier quality
-		- assign workers to be farmers
-		- by more acres
-		- number of farmers are limited by acre (by 5)
-		- number of acres are limited by quality (by 50)
-		- quality is limited to 3 levels, starting at one
-		- these actions increase the rate of production and thusly the food supply surplus
-	- foresty lodge 
-		- quality level, from 1 to 5, decreases the cool down
-		- number of foresters determins the rate of lumber gathered, per action
-		- max work count of 15
-		- may upgrade acre coverage to increase lumber produced per action, limited by the qualtiy level (5 acres coverage per level)
-	- build lumber Mills (bonus)
-		- which can be upgrade by quality, starting at 1, to 5
-		- can have 5 members per level
-		- and consume lumber supplies at a rate determing by mill laboures * quality
-	- build quarries 
-		- quality level increase size and production, starting from 1 - 3
-		- size determins how much per action
-		- while work count determins the cool down, how fast
-		= produces stone
-	- masons lodge (bonus)
-		- masons produce brick, from consuming stone
-		- higher quality improves rate, and work max count
-		- moe masons(assigned workers) produce more brick per action
-	- build architects
-		- to be able to build new buildings faster
-		- built buildings use supplies from verious surplus stockpiles
-	- Atract citizens 
-		- surplus supplies create surplus income
-		- surplus income increase moral per 100 units
-		- moral decreases when a supply is under 100 unitys by 1 unit ever full minor rotation (TBD: most likly a minute)
-		- increased moral attract (moral/100) every 30 minor rotations
-- the player Must
-	- manage consumptionr rates
-	- manage citizen moral rate
-	- average maniciple income of the thiefdom
+	- the goal is to maintain a high value self sustaining system. 
+	- The higher the system value the harder it should be to maintain.
+	- the player(the end user) may:
+		- train works
+			- with in availbe willing citizen count
+			- Asign availble workers to verious jobs
+			- each worker adds to the surplus food consumption rate
+			- workers will only work from there relavtive jobs as long as the needed source, and food are above surplus limits (else base rates are applied untill then)
+		- build farms;
+			- upgrade thier quality
+			- assign workers to be farmers
+			- by more acres
+			- number of farmers are limited by acre (by 5)
+			- number of acres are limited by quality (by 50)
+			- quality is limited to 3 levels, starting at one
+			- these actions increase the rate of production and thusly the food supply surplus
+		- foresty lodge 
+			- quality level, from 1 to 5, decreases the cool down
+			- number of foresters determins the rate of lumber gathered, per action
+			- max work count of 15
+			- may upgrade acre coverage to increase lumber produced per action, limited by the qualtiy level (5 acres coverage per level)
+		- build lumber Mills (bonus)
+			- which can be upgrade by quality, starting at 1, to 5
+			- can have 5 members per level
+			- and consume lumber supplies at a rate determing by mill laboures * quality
+		- build quarries 
+			- quality level increase size and production, starting from 1 - 3
+			- size determins how much per action
+			- while work count determins the cool down, how fast
+			= produces stone
+		- masons lodge (bonus)
+			- masons produce brick, from consuming stone
+			- higher quality improves rate, and work max count
+			- moe masons(assigned workers) produce more brick per action
+		- build architects
+			- to be able to build new buildings faster
+			- built buildings use supplies from verious surplus stockpiles
+		- Atract citizens 
+			- surplus supplies create surplus income
+			- surplus income increase moral per 100 units
+			- moral decreases when a supply is under 100 unitys by 1 unit ever full minor rotation (TBD: most likly a minute)
+			- increased moral attract (moral/100) every 30 minor rotations
+	- the player Must
+		- manage consumptionr rates
+		- manage citizen moral rate
+		- average maniciple income of the thiefdom
 
 ##Done##
-- food consumption, rate by worker count
-- food production, farm states by rate
-- farm building
-- farm: acre building
-- worker to farmer assignment
-- worker training
-- these four actions take score
-- stats mentioned above tracked
+	- food consumption, rate by worker count
+	- food production, farm states by rate
+	- farm building
+	- farm: acre building
+	- worker to farmer assignment
+	- worker training
+	- these four actions take score
+	- stats mentioned above tracked
 
 ##ToDo##
-- farm upgrade function
-- forestry lodge
-- Quarry
-- Achetects
-- citizens
+	- farm upgrade function
+	- forestry lodge
+	- Quarry
+	- Achetects
+	- citizens
 
 ###Also###
--Discription (here), needs to be cleaned up, to be easier to read, clearer, more gramaticaly correct, and to correct spelling issues
--Functions need to be properly diversified into services, according to properly accepted linquistic paradigms of angularJS(how they and its following developers will prefer to see the code organizeds as.)
-- TODO needs to eb expandid on
-- Derective set up needs to eb further explored.
-- code will need to be cleaned, and cleaned again
+	-Discription (here), needs to be cleaned up, to be easier to read, clearer, more gramaticaly correct, and to correct spelling issues
+	-Functions need to be properly diversified into services, according to properly accepted linquistic paradigms of angularJS(how they and its following developers will prefer to see the code organizeds as.)
+	- TODO needs to eb expandid on
+	- Derective set up needs to eb further explored.
+	- code will need to be cleaned, and cleaned again
 
 #based ON #
 ## AngularJS (1.x) Starting Template ##
