@@ -70,9 +70,9 @@ The game is built to a passive progreasion where the user, must work to provide 
 	- forestry lodge
 	- Quarry
 	- Achetects
-	- citizens.
+	- citizens
 
-## Also ##
+### Also ###
 	-Discription (here), needs to be cleaned up, to be easier to read, clearer, more gramaticaly correct, and to correct spelling issues
 	-Functions need to be properly diversified into services, according to properly accepted linquistic paradigms of angularJS(how they and its following developers will prefer to see the code organizeds as.)
 	- TODO needs to eb expandid on
