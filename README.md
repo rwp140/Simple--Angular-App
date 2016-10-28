@@ -1,3 +1,11 @@
+#very basic stat game
+
+
+
+
+#based ON
+
+
 # AngularJS (1.x) Starting Template #
 
 ## Introduction ##
