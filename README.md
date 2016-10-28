@@ -64,6 +64,7 @@ The game is built to a passive progreasion where the user, must work to provide 
 - worker training
 - these four actions take score
 - stats mentioned above tracked
+
 ##TODO##
 - farm upgrade function
 - forestry lodge
