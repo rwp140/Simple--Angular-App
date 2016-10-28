@@ -65,12 +65,13 @@ The game is built to a passive progreasion where the user, must work to provide 
 - these four actions take score
 - stats mentioned above tracked
 
-##TODO##
+##ToDo##
 - farm upgrade function
 - forestry lodge
 - Quarry
 - Achetects
 - citizens
+
 ###Also###
 -Discription (here), needs to be cleaned up, to be easier to read, clearer, more gramaticaly correct, and to correct spelling issues
 -Functions need to be properly diversified into services, according to properly accepted linquistic paradigms of angularJS(how they and its following developers will prefer to see the code organizeds as.)
