@@ -45,22 +45,48 @@ The game is built to a passive progreasion where the user, must work to provide 
 	- build architects
 		- to be able to build new buildings faster
 		- built buildings use supplies from verious surplus stockpiles
+	- Atract citizens 
+		- surplus supplies create surplus income
+		- surplus income increase moral per 100 units
+		- moral decreases when a supply is under 100 unitys by 1 unit ever full minor rotation (TBD: most likly a minute)
+		- increased moral attract (moral/100) every 30 minor rotations
 - the player Must
 	- manage consumptionr rates
 	- manage citizen moral rate
 	- average maniciple income of the thiefdom
 
+##Done##
+- food consumption, rate by worker count
+- food production, farm states by rate
+- farm building
+- farm: acre building
+- worker to farmer assignment
+- worker training
+- these four actions take score
+- stats mentioned above tracked
+##TODO##
+- farm upgrade function
+- forestry lodge
+- Quarry
+- Achetects
+- citizens
+###Also###
+-Discription (here), needs to be cleaned up, to be easier to read, clearer, more gramaticaly correct, and to correct spelling issues
+-Functions need to be properly diversified into services, according to properly accepted linquistic paradigms of angularJS(how they and its following developers will prefer to see the code organizeds as.)
+- TODO needs to eb expandid on
+- Derective set up needs to eb further explored.
+- code will need to be cleaned, and cleaned again
 
 #based ON #
-# AngularJS (1.x) Starting Template #
+## AngularJS (1.x) Starting Template ##
 
-## Introduction ##
+### Introduction ###
 
 This repository contains a scaffold for an AngularJS (1.x) app. This **CAN** be used within Ionic framework mobile apps. However, there are a few things that need to be modified. There are a lot more other than what is written below. Will update when there is time.
 
 **Note:** This starting template follows heavily John Papa's style guide to make it extremely modular.
 
-## What else are there in this repo? ##
+### What else are there in this repo? ###
 
 1. AngularJS specific:
     
