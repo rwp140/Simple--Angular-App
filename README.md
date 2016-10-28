@@ -1,11 +1,12 @@
-#very basic stat game
+#very basic stat game#
+Built Fist as practise, and second as a simple minimal but still playable in concept game in, and to learn from, AngularJS.
+
+## Discription ##
+Of which starting from a given score value, the end user will be able given a thiefdom and the power to buy and upgrade property for verious purposes, farming, blacksmithing, arcitectural, and so on, Train and assing new workers to verious jobs to ultimatly create a better thiefdom. They will be combating the needs of there citizens
 
 
 
-
-#based ON
-
-
+#based ON #
 # AngularJS (1.x) Starting Template #
 
 ## Introduction ##
