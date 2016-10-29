@@ -7,9 +7,23 @@
 		sandCastleService.$inject = ['farmsService'];//'farmsService'
 		function sandCastleService(farmsService) {//farmsService
 			var service = this;
+
+			service.initTest = initTest;
+
+			service.BuildFarm = BuildFarm;
+			service.TrainFarmers = TrainFarmers;
+			service.AssignFarmersToAcre = AssignFarmersToAcre;
+			service.BuildAcre = BuildAcre;
+
+			service.TrainWorker = TrainWorker;
+			service.update = update;
 			/* ======================================== Var ==================================================== */
 			const consumtionRate = 0.65;
 			//TODO sort non constants into an object {key: value} system
+			//service.castle =
+			//{
+			//
+			//}
 			service.score = 1750;
 			service.castleName = "château de sable";
 			service.workNum = 10;
@@ -21,19 +35,18 @@
 			service.MasonaryhouseCost = 500; //per craftsman house
 			service.maxMasons= 15;
 
-			service.castleArea = "Court";
 	    /* ======================================== Services =============================================== */
 
 			var fSvc = farmsService;
 	    /* ======================================== Public Methods ========================================= */
-			service.Test = function()
+			function initTest()
 			{
 				console.log("sand Castle Service : service active");
 				console.log(fSvc.test);
 
 			}
 
-			service.BuildFarm = function()
+			function.BuildFarm()
 			{
 				fSvc.BuildFarm();
 				/*if(service.score>=service.farmCost && service.farmers < service.maxFarmers && service.workNum >= 5)
@@ -49,7 +62,7 @@
 
 			}
 
-			service.TrainFarmers = function(_farm)
+			function TrainFarmers(_farm)
 			{
 					fSvc.TrainFarmers(_farm);
 				/*if(service.farmers < service.maxFarmers && service.score>=service.farmerCost && service.workNum > 0)
@@ -62,7 +75,7 @@
 				}
 				UpdateFarmRate();*/
 			}
-			service.AssignFarmersToAcre = function (_farm,_acre)
+			function AssignFarmersToAcre (_farm,_acre)
 			{
 				fSvc.AssignFarmersToAcre(_farm,_acre);
 				/*if(_farm.unAssignedFarmers >0)
@@ -73,7 +86,7 @@
 				}
 				UpdateFarmRate();*/
 			}
-			service.BuildAcre = function(_farm)
+			function BuildAcre(_farm)
 			{
 				fSvc.BuildAcre(_farm);
 				/*if(_farm.unAssignedFarmers >= 5)
@@ -98,6 +111,11 @@
 				ProduceFood();
 				//cmnSvc.$timeout(update, (intervalCheckTime*1000));
 			}
+			//gets
+			service.GetFarms = function()
+			{
+				return fSvc.farms;
+			}
 	    /* ======================================== Private Methods ======================================== */
 
 			function ProduceFood()
@@ -120,6 +138,11 @@
 				}
 
 			}
+			//constructor
+			//function CastleObject()
+			//{
+
+			//}
 		}
 
 })();

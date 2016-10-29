@@ -58,6 +58,7 @@
 
         //vm.castleArea = "Court";
         //TODO move to seperate service and/or controller
+        vm.castleArea = "Court";
         vm.showInfoBool= true;
         vm.showBTNText = "show";
         vm.showText = ">";
@@ -111,7 +112,11 @@
         {
           svc.BuildAcre(_farm);
         }
-
+        vm.GetFarms = function()
+        {
+          farm_ = svc.GetFarms();
+          return farm_;
+        }
         /* ======================================== Private Methods ======================================== */
         function init() {
           svc.Test();
