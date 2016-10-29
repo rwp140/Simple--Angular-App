@@ -4,24 +4,25 @@
     angular.module('SandCastle')
         .controller('sandCastleController', sandCastleController);
 
-    sandCastleController.$inject = ['commonService', 'sandCastleService'];
+    sandCastleController.$inject = ['commonService','sandCastleService']; //'farmsService',
 
-    function sandCastleController(commonService, sandCastleService) {
+    function sandCastleController(commonService, sandCastleService) {//farmsService,
         var vm = this;
 
         /* ======================================== Var ==================================================== */
         vm.misc = {castleName: "TEST1"};
         //TODO sort out and move the aporopait vars and methods (if not most or all of them) to sandCastleService
         const intervalCheckTime = 1;//eve x seconds
-        const consumtionRate = 0.65;
+        //const consumtionRate = 0.65;
         //TODO sort non constants into an object {key: value} system
-        vm.score = 1750;
-        vm.castleName = "château de sable";
-        vm.workNum = 10;
-        var totalWorkers = 10;
-        vm.consumption = consumtionRate * totalWorkers;;
-        vm.workCost = 100;//score
-        vm.farms = [];// cost workers
+        //vm.score = 1750;
+        //vm.castleName = "château de sable";
+        //vm.workNum = 10;
+        //var totalWorkers = 10;
+        //vm.consumption = consumtionRate * totalWorkers;;
+        //vm.workerCost = 100;//score
+        //vm.farms = [];// cost workers
+        /*
         function FarmObject(){
           this.value="Farm";
           this.farmersTotal = 5;
@@ -36,30 +37,32 @@
           }
 
         };
-        var acre = function()
+        function acre()
         {
           this.farmers = 5;
           this.qualityLevel = 1;
-        }
-        vm.farmers = 0;// cost workers
-        const maxFarmersPerFarm = 50;//per farm
-        vm.maxFarmers = 50;//per farm
-        const farmRatePerFarm = 5;//5 units of food per farm every interval 15 seconds
-        const farmerRatePerFarm = 0.5;//5 units of food per farm every interval 15 seconds
-        vm.farmRate = 0; //
-        vm.farmCost = 250;//score
-        vm.farmerCost = 50;//score
-        vm.masons = 0;
-        vm.food = 500;
-        vm.MasonaryhouseCost = 500; //per craftsman house
-        vm.maxMasons= 15;
+        };
+        */
+        //vm.farmers = 0;// cost workers
+        //const maxFarmersPerFarm = 50;//per farm
+        //vm.maxFarmers = 50;//per farm
+        //const farmRatePerFarm = 5;//5 units of food per farm every interval 15 seconds
+        //const farmerRatePerFarm = 0.5;//5 units of food per farm every interval 15 seconds
+        //vm.farmRate = 0; //
+        //vm.farmCost = 250;//score
+        //vm.farmerCost = 50;//score
+        //vm.masons = 0;
+        //vm.food = 500;
+        //vm.MasonaryhouseCost = 500; //per craftsman house
+        //vm.maxMasons= 15;
 
-        vm.castleArea = "Court";
-        //TODO move to seperate service
+        //vm.castleArea = "Court";
+        //TODO move to seperate service and/or controller
         vm.showInfoBool= true;
         vm.showBTNText = "show";
         vm.showText = ">";
         /* ======================================== Services =============================================== */
+  			//var fSvc = farmsService;
         var svc = sandCastleService;
         var cmnSvc = commonService;
 
@@ -84,62 +87,39 @@
         }
         vm.TrainWorker = function()
         {
-          if(vm.score>=vm.workCost)
-          {
-            vm.score=vm.score-vm.workCost;
-            vm.workNum +=5;
+          //if(vm.score>=vm.workerCost)
+          //{
+            //vm.score=vm.score-vm.workerCost;
+          //vm.workNum +=5;
             //totalWorkers +=5;
-          }
+          //}
         }
         vm.BuildFarm = function()
         {
-          if(vm.score>=vm.farmCost && vm.farmers < vm.maxFarmers && vm.workNum >= 5)
-          {
-            vm.score=vm.score-vm.farmCost;
-            var _farm = new FarmObject();
-            vm.farms.push(_farm);//value:"farm"});//new vm.farm());// cost workers
-            vm.farms[vm.farms.length-1].AddAcre();
-            vm.workNum -=5;
-            vm.farmers +=5;//keeps track of total
-          }
-          UpdateFarmRate();
+          svc.BuildFarm();
         }
+
         vm.TrainFarmers = function(_farm)
         {
-          if(vm.farmers < vm.maxFarmers && vm.score>=vm.farmerCost && vm.workNum > 0)
-          {
-            vm.score=vm.score-vm.farmerCost;
-            vm.workNum --;
-            vm.farmers ++;//adds to total
-            _farm.farmers ++;
-            _farm.unAssignedFarmers ++;
-          }
-          UpdateFarmRate();
+            svc.TrainFarmers(_farm);
         }
         vm.AssignFarmersToAcre = function (_farm,_acre)
         {
-          if(_farm.unAssignedFarmers >0)
-          {
-            _farm.farmers --;
-            _farm.unAssignedFarmers --;
-            _acre.farmers ++;
-          }
-          UpdateFarmRate();
+          svc.AssignFarmersToAcre(_farm,_acre);
         }
         vm.BuildAcre = function(_farm)
         {
-          if(_farm.unAssignedFarmers >= 5)
-          {
-            _farm.AddAcre();
-          }
-          UpdateFarmRate();
+          svc.BuildAcre(_farm);
         }
+
         /* ======================================== Private Methods ======================================== */
         function init() {
-          vm.BuildFarm();
-          update()//start update
+          svc.Test();
+          svc.BuildFarm();
+          //svc.update(cmnSvc.$timeout());//start update
+          cmnSvc.$timeout(svc.update, (intervalCheckTime*1000));
         }
-        function update()
+        /*function update()
         {
           Consumtion();
           ProduceFood();
@@ -157,21 +137,23 @@
         function UpdateFarmRate()
         {
           vm.farmRate = 0;
-          var farmRate = 0;
-          for(var farm of vm.farms)
+          var farmRate_ = 0;
+          for(let i=0; i<vm.farms.length; i++)
           {
-            for(var acre of farm.acres)
+            let farm = vm.farms[i];
+            for(let i = 0; i<farm.acres.length; i++)
             {
+              let acre = farm.acres[i];
               console.log("acre.qualityLevel "+acre.qualityLevel);
               console.log("acre.farmers "+acre.farmers);
-              farmRate +=acre.qualityLevel*acre.farmers;
-              console.log("farm rate "+farmRate);
+              farmRate_ +=acre.qualityLevel*acre.farmers;
+              console.log("farm rate "+farmRate_);
             }
             console.log("acres "+farm.acres.length );
             console.log("farm.qualityLevel "+farm.qualityLevel);
-            farmRate +=  (farm.acres.length * ((farm.qualityLevel)/2));
-            console.log("farm rate "+farmRate);
-            vm.farmRate += farmRate;//+(vm.farmers/10);
+            farmRate_ +=  (farm.acres.length * ((farm.qualityLevel)/2));
+            console.log("farm rate "+farmRate_);
+            vm.farmRate += farmRate_;//+(vm.farmers/10);
           }
         }
         function Consumtion()
@@ -180,11 +162,11 @@
           {
             vm.consumption = consumtionRate * totalWorkers;
             vm.food = vm.food - vm.consumption;
-          }else{``
+          }else{
           //all workers but farmers stop working tell theres at least 100
           }
 
-        }
+        }*/
         init();
     }
 })();
