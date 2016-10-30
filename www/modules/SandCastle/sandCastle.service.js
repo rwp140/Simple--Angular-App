@@ -20,20 +20,27 @@
 			/* ======================================== Var ==================================================== */
 			const consumtionRate = 0.65;
 			//TODO sort non constants into an object {key: value} system
-			//service.castle =
-			//{
-			//
-			//}
-			service.score = 1750;
-			service.castleName = "château de sable";
-			service.workNum = 10;
+			service.castle =
+			{
+			     score:1750,
+           castleName :"château de sable",
+           workNum:10,
+           //totalWorkers:10,
+           consumption: (consumtionRate * totalWorkers),
+           workerCost:100,
+           food:500
+			}
+			//service.score = 1750;
+			//service.castleName = "château de sable";
+			//service.workNum = 10;
 			var totalWorkers = 10;
-			service.consumption = consumtionRate * totalWorkers;;
-			service.workerCost = 100;//score
-			service.masons = 0;
-			service.food = 500;
-			service.MasonaryhouseCost = 500; //per craftsman house
-			service.maxMasons= 15;
+			//service.consumption = consumtionRate * totalWorkers;
+			//service.workerCost = 100;//score
+			//service.food = 500;
+
+			//service.masons = 0;
+			//service.MasonaryhouseCost = 500; //per craftsman house
+			//service.maxMasons= 15;
 
 	    /* ======================================== Services =============================================== */
 
@@ -46,9 +53,8 @@
 
 			}
 
-			function.BuildFarm()
-			{
-				fSvc.BuildFarm();
+			function BuildFarm(){
+				fSvc.BuildFarm(service.score,service.workNum);
 				/*if(service.score>=service.farmCost && service.farmers < service.maxFarmers && service.workNum >= 5)
 				{
 					service.score=service.score-service.farmCost;
@@ -62,8 +68,7 @@
 
 			}
 
-			function TrainFarmers(_farm)
-			{
+			function TrainFarmers(_farm){
 					fSvc.TrainFarmers(_farm);
 				/*if(service.farmers < service.maxFarmers && service.score>=service.farmerCost && service.workNum > 0)
 				{
@@ -75,8 +80,7 @@
 				}
 				UpdateFarmRate();*/
 			}
-			function AssignFarmersToAcre (_farm,_acre)
-			{
+			function AssignFarmersToAcre (_farm,_acre){
 				fSvc.AssignFarmersToAcre(_farm,_acre);
 				/*if(_farm.unAssignedFarmers >0)
 				{
@@ -86,8 +90,7 @@
 				}
 				UpdateFarmRate();*/
 			}
-			function BuildAcre(_farm)
-			{
+			function BuildAcre(_farm){
 				fSvc.BuildAcre(_farm);
 				/*if(_farm.unAssignedFarmers >= 5)
 				{
@@ -95,8 +98,7 @@
 				}
 				UpdateFarmRate();*/
 			}
-			service.TrainWorker = function()
-			{
+			function TrainWorker(){
 				if(service.score>=service.workerCost)
 				{
 					service.score=service.score-service.workerCost;
@@ -105,21 +107,20 @@
 				}
 			}
 
-			service.update = function()
-			{
+			function update(){
 				Consumtion();
 				ProduceFood();
 				//cmnSvc.$timeout(update, (intervalCheckTime*1000));
 			}
 			//gets
-			service.GetFarms = function()
-			{
-				return fSvc.farms;
+			service.GetFarms = function(){
+        var farms_ = fSvc.farms;
+        console.log(farms_);
+				return farms_;
 			}
 	    /* ======================================== Private Methods ======================================== */
 
-			function ProduceFood()
-			{
+			function ProduceFood(){
 				//service.maxFarmers = maxFarmersPerFarm*service.farms.length;
 				//service.farmRate = farmRatePerFarm*service.farms.length+(service.farmers*farmerRatePerFarm);
 				let farmRate_ = fSvc.ProduceFood();
@@ -127,8 +128,7 @@
 
 
 			}
-			function Consumtion()
-			{
+			function Consumtion(){
 				if(service.food >100)
 				{
 					service.consumption = consumtionRate * totalWorkers;

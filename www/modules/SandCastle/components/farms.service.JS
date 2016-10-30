@@ -34,21 +34,19 @@
 					//console.log("sandCastleService : " + farms[i].Test);
 				//}
 			//}
-      service.BuildFarm = function()
-      {
-        if(service.score>=service.farmCost && service.totalFarmers< service.maxFarmers && service.workNum >= 5)
+      service.BuildFarm = function(_score,_workNum){
+        if(_score>=service.farmCost && service.totalFarmers< service.maxFarmers && _workNum >= 5)
         {
-          service.score=service.score-service.farmCost;
+          _score=service.score-service.farmCost;
           var _farm = new FarmObject();
           service.farms.push(_farm);//value:"farm"});//new service.farm());// cost workers
           service.farms[service.farms.length-1].AddAcre();
-          service.workNum -=5;
+          _workNum -=5;
           service.totalFarmers+=5;//keeps track of total
         }
         UpdateFarmRate();
       }
-      service.TrainFarmers = function(_farm)
-      {
+      service.TrainFarmers = function(_farm){
         if(service.totalFarmers< service.maxFarmers && service.score>=service.farmerCost && service.workNum > 0)
         {
           service.score=service.score-service.farmerCost;
@@ -59,8 +57,7 @@
         }
         UpdateFarmRate();
       }
-      service.AssignFarmersToAcre = function (_farm,_acre)
-      {
+      service.AssignFarmersToAcre = function (_farm,_acre){
         if(_farm.unAssignedFarmers >0)
         {
           _farm.farmers --;
@@ -69,16 +66,14 @@
         }
         UpdateFarmRate();
       }
-      service.BuildAcre = function(_farm)
-      {
+      service.BuildAcre = function(_farm){
         if(_farm.unAssignedFarmers >= 5)
         {
           _farm.AddAcre();
         }
         UpdateFarmRate();
       }
-			service.ProduceFood =function()
-			{
+			service.ProduceFood =function(){
 				service.maxFarmers = maxFarmersPerFarm*service.farms.length;
 				//service.farmRate = farmRatePerFarm*service.farms.length+(service.farmers*farmerRatePerFarm);
 
@@ -101,21 +96,17 @@
         }
 
       };
-      function acre()
-      {
+      function acre(){
         this.totalFarmers= 5;
         this.qualityLevel = 1;
       };
 
-      function UpdateFarmRate()
-      {
+      function UpdateFarmRate(){
         service.farmRate = 0;
         var farmRate_ = 0;
-        for(let i=0; i<service.farms.length; i++)
-        {
+        for(let i=0,l=service.farms.length; i<l; i++){
           let farm = service.farms[i];
-          for(let i = 0; i<farm.acres.length; i++)
-          {
+          for(let n = 0,s=farm.acres.length; i<s; i++){
             let acre = farm.acres[i];
             console.log("acre.qualityLevel "+acre.qualityLevel);
             console.log("acre.farmers "+acre.farmers);

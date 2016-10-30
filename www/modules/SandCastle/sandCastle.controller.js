@@ -112,14 +112,14 @@
         {
           svc.BuildAcre(_farm);
         }
-        vm.GetFarms = function()
-        {
+        vm.GetFarms = function(){
+
           farm_ = svc.GetFarms();
           return farm_;
         }
         /* ======================================== Private Methods ======================================== */
         function init() {
-          svc.Test();
+          svc.initTest();
           svc.BuildFarm();
           //svc.update(cmnSvc.$timeout());//start update
           cmnSvc.$timeout(svc.update, (intervalCheckTime*1000));

@@ -9,7 +9,7 @@
   <div ng-switch-when="Farms">
     <h2>Farms</h2>
     <h3>Total Farmers:{{vm.totalFarmers}}</h3>
-    <div ng-repeat="farm in vm.GetFarms()">
+    <div ng-repeat="farm in farms">
       <h3>Farm hands:{{farm.farmersTotal}}</h3>({{farm.unAssignedFarmers}} Unassigned) <input type="button"value="Train Farmers" ng-click="vm.TrainFarmers(farm)"> (Cost 1 worker, {{vm.farmerCost} score})
       <h3>Base Quality:{{farm.quality}}</h3>
       <p><h3>Acres</h3> <input type="button"value="Build Acre" ng-click="vm.BuildAcre(farm)">(costs: 5 unassigned Farmers)</p>
