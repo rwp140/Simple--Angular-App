@@ -19,7 +19,7 @@
           //methods
 					function init(){
             scope.castle = scv.castle;
-            scope.farms = scv.GetFarms();
+            scope.farms = scv.GetFarms();//TODO remove
 					}
 
 					init();
