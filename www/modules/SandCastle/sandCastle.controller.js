@@ -13,7 +13,7 @@
         vm.ShowInfo = ShowInfo;
         vm.TrainWorker = TrainWorker;
         vm.BuildFarm = BuildFarm;
-        vm.TrainFarmers =;
+        vm.TrainFarmers = TrainFarmers;
         /* ======================================== Var ==================================================== */
         vm.misc = {castleName: "TEST1"};
         //TODO sort out and move the aporopait vars and methods (if not most or all of them) to sandCastleService
@@ -79,7 +79,7 @@
           //TODO add var testing so unexpected strings don't make it through
           vm.castleArea = area;
         }
-        function ShowInfo = function()
+        function ShowInfo()
         {
           vm.showInfoBool= !vm.showInfoBool;
           if(vm.showInfoBool)
@@ -91,7 +91,7 @@
             vm.showText = "<";
           }
         }
-        function TrainWorker = function()
+        function TrainWorker()
         {
           //if(vm.score>=vm.workerCost)
           //{
@@ -167,15 +167,15 @@
           svc.BuildFarm();
         }
 
-        function TrainFarmers = function(_farm)
+        function TrainFarmers(_farm)
         {
             svc.TrainFarmers(_farm);
         }
-        function AssignFarmersToAcre = function (_farm,_acre)
+        function AssignFarmersToAcre(_farm,_acre)
         {
           svc.AssignFarmersToAcre(_farm,_acre);
         }
-        function BuildAcre = function(_farm)
+        function BuildAcre(_farm)
         {
           svc.BuildAcre(_farm);
         }

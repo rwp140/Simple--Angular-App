@@ -123,7 +123,6 @@
       function init()
       {
           service.farms = fSvc.farms;
-
       }
 			function ProduceFood(){
 				//service.maxFarmers = maxFarmersPerFarm*service.farms.length;
