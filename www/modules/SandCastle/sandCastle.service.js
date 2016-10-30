@@ -26,7 +26,7 @@
            castleName :"château de sable",
            workNum:10,
            //totalWorkers:10,
-           consumption: (consumtionRate * totalWorkers),
+           consumption: 1,
            workerCost:100,
            food:500
 			}
@@ -49,8 +49,8 @@
 	    /* ======================================== Public Methods ========================================= */
 			function initTest()
 			{
-				console.log("sand Castle Service : service active");
-				console.log(fSvc.test);
+				// console.log("sand Castle Service : service active");
+				// console.log(fSvc.test);
 
 			}
 
@@ -109,6 +109,7 @@
 			}
 
 			function update(){
+        console.log("update");
 				Consumtion();
 				ProduceFood();
 				//cmnSvc.$timeout(update, (intervalCheckTime*1000));
@@ -116,19 +117,21 @@
 			//gets
 			service.GetFarms = function(){//TODO remove this add
         var farms_ = fSvc.farms;
-        console.log(farms_);
+        // console.log(farms_);
 				return farms_;
 			}
 	    /* ======================================== Private Methods ======================================== */
       function init()
       {
           service.farms = fSvc.farms;
+          // console.log(service.castle.food);
       }
 			function ProduceFood(){
 				//service.maxFarmers = maxFarmersPerFarm*service.farms.length;
 				//service.farmRate = farmRatePerFarm*service.farms.length+(service.farmers*farmerRatePerFarm);
 				let farmRate_ = fSvc.ProduceFood();
-				service.castle.food = service.castle.food + service.castle.farmRate;
+        // console.log("farmRate "+farmRate_);
+				service.castle.food = service.castle.food + farmRate_;
 
 
 			}
@@ -136,7 +139,10 @@
 				if(service.castle.food >100)
 				{
 					service.castle.consumption = consumtionRate * totalWorkers;
+          //console.log("consumption "+service.castle.consumption);
+          //console.log("food "+service.castle.food);
 					service.castle.food = service.castle.food - service.castle.consumption;
+          //console.log("food "+service.castle.food);
 				}else{
 				//all workers but farmers stop working tell theres at least 100
 				}
