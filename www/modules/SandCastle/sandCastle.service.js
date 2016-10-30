@@ -30,6 +30,7 @@
            workerCost:100,
            food:500
 			}
+      service.farms = [];
 			//service.score = 1750;
 			//service.castleName = "château de sable";
 			//service.workNum = 10;
@@ -54,7 +55,7 @@
 			}
 
 			function BuildFarm(){
-				fSvc.BuildFarm(service.score,service.workNum);
+				fSvc.BuildFarm(service.castle.score,service.castle.workNum);
 				/*if(service.score>=service.farmCost && service.farmers < service.maxFarmers && service.workNum >= 5)
 				{
 					service.score=service.score-service.farmCost;
@@ -99,10 +100,10 @@
 				UpdateFarmRate();*/
 			}
 			function TrainWorker(){
-				if(service.score>=service.workerCost)
+				if(service.castle.score>=service.castle.workerCost)
 				{
-					service.score=service.score-service.workerCost;
-					service.workNum +=5;
+					service.castle.score=service.castle.score-service.castle.workerCost;
+					service.castle.workNum +=5;
 					//totalWorkers +=5;
 				}
 			}
@@ -113,26 +114,30 @@
 				//cmnSvc.$timeout(update, (intervalCheckTime*1000));
 			}
 			//gets
-			service.GetFarms = function(){
+			service.GetFarms = function(){//TODO remove this add
         var farms_ = fSvc.farms;
         console.log(farms_);
 				return farms_;
 			}
 	    /* ======================================== Private Methods ======================================== */
+      function init()
+      {
+          service.farms = fSvc.farms;
 
+      }
 			function ProduceFood(){
 				//service.maxFarmers = maxFarmersPerFarm*service.farms.length;
 				//service.farmRate = farmRatePerFarm*service.farms.length+(service.farmers*farmerRatePerFarm);
 				let farmRate_ = fSvc.ProduceFood();
-				service.food = service.food + service.farmRate;
+				service.castle.food = service.castle.food + service.castle.farmRate;
 
 
 			}
 			function Consumtion(){
-				if(service.food >100)
+				if(service.castle.food >100)
 				{
-					service.consumption = consumtionRate * totalWorkers;
-					service.food = service.food - service.consumption;
+					service.castle.consumption = consumtionRate * totalWorkers;
+					service.castle.food = service.castle.food - service.castle.consumption;
 				}else{
 				//all workers but farmers stop working tell theres at least 100
 				}
@@ -143,6 +148,7 @@
 			//{
 
 			//}
+      init();
 		}
 
 })();

@@ -1,13 +1,13 @@
 <hr>
 <p ng-click="vm.ShowInfo()">{{vm.showText}} thiefdom information <!--<input type="button" aria-label="Toggle ngHide" value="{{vm.showBTNText}}" ng-click="vm.ShowInfo()">--></p>
 <div ng-hide="vm.showInfoBool" >
-  <h2>Score:{{vm.score}}</h2>
-  <h2>Workers:{{vm.workNum}}</h2><input type="button"value="Train Worker" ng-click="vm.TrainWorker()">(cost: {{vm.workCost}} score)
-  <h2>Farms:{{vm.farms.length}}</h2><input type="button"value="Build farm" ng-click="vm.BuildFarm()">(cost: {{vm.farmCost}} score)
-  <h3>Farmers:{{vm.farmers}}</h3>
-  <h3>Surplus Food:{{vm.food}}</h3>
-  <h4>production speed:{{vm.farmRate}}</h4>
-  <h4>consumption speed:{{vm.consumption}}</h4>
+  <h2>Score:{{castle.score}}</h2>
+  <h2>Workers:{{castle.workNum}}</h2><input type="button"value="Train Worker" ng-click="vm.TrainWorker()">(cost: {{castle.workerCost}} score)
+  <h2>Farms:{{castle.farms.length}}</h2><input type="button"value="Build farm" ng-click="vm.BuildFarm()">(cost: {{castle.farmCost}} score)
+  <h3>Farmers:{{castle.farmers}}</h3>
+  <h3>Surplus Food:{{castle.food}}</h3>
+  <h4>production speed:{{castle.farmRate}}</h4>
+  <h4>consumption speed:{{castle.consumption}}</h4>
 </div>
 <hr>
 <!--<ng-transclude></ng-transclude>-->

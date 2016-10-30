@@ -12,11 +12,14 @@
 				scope: false,//{placeholder: "@",list: "=",property: "@"} //I figure theres a way with in {} but I'm nto quite quick enough to pick up on yet, this was easiest
 				templateUrl: 'modules/directives/SandCastle/castle.Directive.html',
 				link: function(scope) {
-          var scv = sandCastleService;
           scope.farms = [];
-          scope.farms = scv.GetFarms();
+          scope.castle = {};
+          //Services
+            var scv = sandCastleService;
+          //methods
 					function init(){
-
+            scope.castle = scv.castle;
+            scope.farms = scv.GetFarms();
 					}
 
 					init();

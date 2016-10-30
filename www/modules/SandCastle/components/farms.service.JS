@@ -97,7 +97,7 @@
 
       };
       function acre(){
-        this.totalFarmers= 5;
+        this.farmers= 5;
         this.qualityLevel = 1;
       };
 

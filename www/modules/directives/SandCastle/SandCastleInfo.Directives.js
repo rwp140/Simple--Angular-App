@@ -12,6 +12,8 @@
 				scope: false,//{placeholder: "@",list: "=",property: "@"} //I figure theres a way with in {} but I'm nto quite quick enough to pick up on yet, this was easiest
 				templateUrl: 'modules/directives/SandCastle/castleInfoDisplay.directive.html',
 				link: function(scope) {
+          var scv = sandCastleService;
+          scope.castle = scv.castle;
 					function init(){
 
 					}
