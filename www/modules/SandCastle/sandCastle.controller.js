@@ -93,12 +93,23 @@
         }
         function TrainWorker()
         {
-          //if(vm.score>=vm.workerCost)
-          //{
-            //vm.score=vm.score-vm.workerCost;
-          //vm.workNum +=5;
-            //totalWorkers +=5;
-          //}
+          svc.TrainWorker();
+        }
+        function BuildFarm()
+        {
+          svc.BuildFarm();
+        }
+        function TrainFarmers(_farm)
+        {
+            svc.TrainFarmers(_farm);
+        }
+        function AssignFarmersToAcre(_farm,_acre)
+        {
+          svc.AssignFarmersToAcre(_farm,_acre);
+        }
+        function BuildAcre(_farm)
+        {
+          svc.BuildAcre(_farm);
         }
 
         vm.GetFarms = function(){//TODO remove
@@ -165,23 +176,7 @@
 
         }*/
 
-        function BuildFarm()
-        {
-          svc.BuildFarm();
-        }
 
-        function TrainFarmers(_farm)
-        {
-            svc.TrainFarmers(_farm);
-        }
-        function AssignFarmersToAcre(_farm,_acre)
-        {
-          svc.AssignFarmersToAcre(_farm,_acre);
-        }
-        function BuildAcre(_farm)
-        {
-          svc.BuildAcre(_farm);
-        }
         init();
     }
 })();
