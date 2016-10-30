@@ -109,13 +109,13 @@
 			}
 
 			function update(){
-        console.log("update");
+        //console.log("update");
 				Consumtion();
 				ProduceFood();
 				//cmnSvc.$timeout(update, (intervalCheckTime*1000));
 			}
 			//gets
-			service.GetFarms = function(){//TODO remove this add
+			service.GetFarms = function(){//TODO remove
         var farms_ = fSvc.farms;
         // console.log(farms_);
 				return farms_;
