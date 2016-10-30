@@ -75,7 +75,7 @@
         /* ======================================== Public Methods ========================================= */
         function ChangeArea(area)
         {
-          console.log(area);
+          // console.log(area);
           //TODO add var testing so unexpected strings don't make it through
           vm.castleArea = area;
         }
@@ -111,14 +111,17 @@
           svc.initTest();
           svc.BuildFarm();
           //svc.update(cmnSvc.$timeout());//start update
-          cmnSvc.$timeout(svc.update, (intervalCheckTime*1000));
+          //cmnSvc.$timeout(svc.update, 1000);//svc.update()
+          update();
         }
-        /*function update()
+        function update()
         {
-          Consumtion();
-          ProduceFood();
+          //Consumtion();
+          //ProduceFood();
+          svc.update();
           cmnSvc.$timeout(update, (intervalCheckTime*1000));
         }
+        /*
         function ProduceFood()
         {
           vm.maxFarmers = maxFarmersPerFarm*vm.farms.length;
