@@ -74,12 +74,14 @@
         UpdateFarmRate();
       }
 			service.ProduceFood =function(){
-				service.maxFarmers = maxFarmersPerFarm*service.farms.length;
-				//service.farmRate = farmRatePerFarm*service.farms.length+(service.farmers*farmerRatePerFarm);
+        service.farmRate =0;
+				//service.maxFarmers = maxFarmersPerFarm*service.farms.length;
+        //console.log("farmers "+service.farmers);
+				service.farmRate = farmRatePerFarm*service.farms.length+(service.totalFarmers*farmerRatePerFarm);
 
-				service.food = service.food + service.farmRate;
+				//service.food = service.food + service.farmRate;
 
-
+        return service.farmRate;
 			}
 	    /* ======================================== Private Methods ======================================== */
       function FarmObject(){
@@ -108,15 +110,15 @@
           let farm = service.farms[i];
           for(let n = 0,s=farm.acres.length; i<s; i++){
             let acre = farm.acres[i];
-            console.log("acre.qualityLevel "+acre.qualityLevel);
-            console.log("acre.farmers "+acre.farmers);
+            // console.log("acre.qualityLevel "+acre.qualityLevel);
+            // console.log("acre.farmers "+acre.farmers);
             farmRate_ +=acre.qualityLevel*acre.farmers;
-            console.log("farm rate "+farmRate_);
+            // console.log("farm rate "+farmRate_);
           }
-          console.log("acres "+farm.acres.length );
-          console.log("farm.qualityLevel "+farm.qualityLevel);
+          // console.log("acres "+farm.acres.length );
+          // console.log("farm.qualityLevel "+farm.qualityLevel);
           farmRate_ +=  (farm.acres.length * ((farm.qualityLevel)/2));
-          console.log("farm rate "+farmRate_);
+          // console.log("farm rate "+farmRate_);
           service.farmRate += farmRate_;//+(service.farmers/10);
         }
       }
