@@ -9,6 +9,11 @@
     function sandCastleController(commonService, sandCastleService) {//farmsService,
         var vm = this;
 
+        vm.ChangeArea = ChangeArea;
+        vm.ShowInfo = ShowInfo;
+        vm.TrainWorker = TrainWorker;
+        vm.BuildFarm = BuildFarm;
+        vm.TrainFarmers =;
         /* ======================================== Var ==================================================== */
         vm.misc = {castleName: "TEST1"};
         //TODO sort out and move the aporopait vars and methods (if not most or all of them) to sandCastleService
@@ -68,13 +73,13 @@
         var cmnSvc = commonService;
 
         /* ======================================== Public Methods ========================================= */
-        vm.ChangeArea = function(area)
+        function ChangeArea(area)
         {
           console.log(area);
           //TODO add var testing so unexpected strings don't make it through
           vm.castleArea = area;
         }
-        vm.ShowInfo = function()
+        function ShowInfo = function()
         {
           vm.showInfoBool= !vm.showInfoBool;
           if(vm.showInfoBool)
@@ -86,7 +91,7 @@
             vm.showText = "<";
           }
         }
-        vm.TrainWorker = function()
+        function TrainWorker = function()
         {
           //if(vm.score>=vm.workerCost)
           //{
@@ -95,24 +100,8 @@
             //totalWorkers +=5;
           //}
         }
-        vm.BuildFarm = function()
-        {
-          svc.BuildFarm();
-        }
 
-        vm.TrainFarmers = function(_farm)
-        {
-            svc.TrainFarmers(_farm);
-        }
-        vm.AssignFarmersToAcre = function (_farm,_acre)
-        {
-          svc.AssignFarmersToAcre(_farm,_acre);
-        }
-        vm.BuildAcre = function(_farm)
-        {
-          svc.BuildAcre(_farm);
-        }
-        vm.GetFarms = function(){
+        vm.GetFarms = function(){//TODO remove
 
           farm_ = svc.GetFarms();
           return farm_;
@@ -172,6 +161,24 @@
           }
 
         }*/
+
+        function BuildFarm()
+        {
+          svc.BuildFarm();
+        }
+
+        function TrainFarmers = function(_farm)
+        {
+            svc.TrainFarmers(_farm);
+        }
+        function AssignFarmersToAcre = function (_farm,_acre)
+        {
+          svc.AssignFarmersToAcre(_farm,_acre);
+        }
+        function BuildAcre = function(_farm)
+        {
+          svc.BuildAcre(_farm);
+        }
         init();
     }
 })();
