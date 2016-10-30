@@ -13,8 +13,9 @@
 				templateUrl: 'modules/directives/SandCastle/castleInfoDisplay.directive.html',
 				link: function(scope) {
           var scv = sandCastleService;
-          scope.castle = scv.castle;
+          scope.castle = {};//scv.castle;
 					function init(){
+            scope.castle = scv.castle;
 
 					}
 
